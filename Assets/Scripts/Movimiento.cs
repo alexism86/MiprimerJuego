@@ -10,6 +10,8 @@ public class Movimiento : MonoBehaviour
     public float fuerza_Salto;
     private Rigidbody2D rigidbody;
     private BoxCollider2D boxCollider;
+    public AudioManager audioManager;
+    public AudioClip sonidoCorrer;
     
     
     //Header animaciones
@@ -50,7 +52,9 @@ public class Movimiento : MonoBehaviour
         //Movemos el personaje en X
         rigidbody.velocity = new Vector2(horizontal * velocidad, rigidbody.velocity.y);
         orientacionCharacter(horizontal);
-        
+
+        AudioManager.Instance.ReproducirSonido(sonidoCorrer);
+
     }
     
     
